@@ -34,7 +34,7 @@ export default function VantaBackground() {
 
     const init = (theme: Theme) => {
       if (!mounted || !containerRef.current) return;
-      const THREE = (window as any).THREE as typeof import('three');
+      const THREE = (window as any).THREE;
       if (!THREE) return;
 
       // cleanup previous scene
