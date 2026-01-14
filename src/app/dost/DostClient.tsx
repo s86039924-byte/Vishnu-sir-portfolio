@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const ACAZDA_ORIGIN = "https://www.acadza.com";
 
@@ -34,6 +35,7 @@ function deleteCookie(name: string) {
 }
 
 export default function DostClient() {
+    const router = useRouter();
     const [showPopup, setShowPopup] = useState(false);
     const [loginId, setLoginId] = useState("");
     const [password, setPassword] = useState("");
@@ -124,7 +126,15 @@ export default function DostClient() {
             {showPopup ? (
                 <div className="popup">
                     <div className="popupContent">
-                        <h3>Enter Details</h3>
+                        <button
+                            type="button"
+                            className="closeButton"
+                            aria-label="Close Dost card"
+                            onClick={() => router.push("/")}
+                        >
+                            ×
+                        </button>
+                        <h3  style={{ marginBottom: "15px" }}>Enter Details</h3>
 
                         <input
                             type="text"
@@ -190,6 +200,29 @@ export default function DostClient() {
           z-index: 9999;
         }
 
+        .closeButton {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 40px;
+          height: 32px;
+          border: none;
+          background: #ffffff;
+          color: #ff3b3b;
+          border-radius: 6px;
+          font-size: 20px;
+          font-weight: 600;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.15s ease;
+        }
+
+        .closeButton:hover {
+          background: #f6f6f6;
+        }
+
         .popupContent {
           background: #fff;
           padding: 20px;
@@ -197,6 +230,8 @@ export default function DostClient() {
           width: 300px;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
           text-align: center;
+          position: relative;
+          padding-top: 40px;
         }
 
         .popupContent input {
