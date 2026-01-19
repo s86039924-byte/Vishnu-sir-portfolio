@@ -52,7 +52,7 @@ export default function CoursesSection() {
   const [activeTab, setActiveTab] = useState<'Mathematics' | 'Biology'>('Mathematics');
 
   return (
-    <section className="courses-section">
+    <section id="courses" className="courses-section">
       <div className="courses-container">
         <motion.div
           className="section-header"

@@ -38,7 +38,7 @@ export default function CoursePromoModal() {
               book a counselling call and secure early-bird seats.
             </p>
             <div className="course-promo__actions">
-              <Link className="course-promo__btn" href="/courses" onClick={close}>
+              <Link className="course-promo__btn" href="/#courses" onClick={close}>
                 View Courses
               </Link>
               <Link className="course-promo__link" href="/contact" onClick={close}>
@@ -57,7 +57,7 @@ export default function CoursePromoModal() {
               <span>Unlock AI practice labs, mentor clinics, and DOST access.</span>
             </div>
             <div className="course-banner__actions">
-              <Link className="course-banner__btn" href="/courses" onClick={closeBanner}>
+              <Link className="course-banner__btn" href="/#courses" onClick={closeBanner}>
                 View Courses
               </Link>
               <button className="course-banner__close" aria-label="Close banner" onClick={closeBanner}>

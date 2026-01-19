@@ -21,7 +21,7 @@ export default function CourseTopBanner() {
         JEE 2026/27 crash &amp; target batches live. Unlock AI practice labs, mentor clinics, and DOST access.
       </span>
       <div className="course-top-banner__actions">
-        <Link className="course-top-banner__cta" href="/courses">
+        <Link className="course-top-banner__cta" href="/#courses">
           View Courses
         </Link>
         <button className="course-top-banner__close" aria-label="Close announcement" onClick={() => setShow(false)}>
