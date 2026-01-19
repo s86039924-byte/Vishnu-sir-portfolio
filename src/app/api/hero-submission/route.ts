@@ -1,47 +1,47 @@
 import { NextResponse } from 'next/server';
 
-const GOOGLE_FORM_ENDPOINT =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfj_jQFKFukTLaXl-aIJTLJF6z054NnaDfDf8IFq9x3DpSOfQ/formResponse';
-
-const ENTRY_MAP = {
-  name: 'entry.335578936',
-  email: 'entry.1970688751',
-  mobile: 'entry.1026570122',
-  class: 'entry.1041767998',
-  subject: 'entry.1503846795',
-  batch: 'entry.1273071780',
-};
+const SCRIPT_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbybbQ6VDZ3Rz6d4GPgO98GGESJgKgQhmhimr2dKCRyfRox0BJR5vsIRAnBHacT5nEYdWQ/exec';
 
 export async function POST(request: Request) {
   try {
     const payload = await request.json();
-    const formBody = new URLSearchParams();
 
-    formBody.append(ENTRY_MAP.name, payload.name || '');
-    formBody.append(ENTRY_MAP.email, payload.email || '');
-    formBody.append(ENTRY_MAP.mobile, payload.mobile || '');
-    formBody.append(ENTRY_MAP.class, payload.class || '');
-    formBody.append(ENTRY_MAP.subject, payload.subject || '');
-    formBody.append(ENTRY_MAP.batch, payload.batch || '');
-
-    const response = await fetch(GOOGLE_FORM_ENDPOINT, {
+    const response = await fetch(SCRIPT_ENDPOINT, {
       method: 'POST',
-      body: formBody,
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        mobile: payload.mobile,
+        class: payload.class,
+        batch: payload.batch ?? payload.prefer_batch,
+        subject: payload.subject,
+        prefer_batch: payload.prefer_batch,
+      }),
     });
+
     const responseText = await response.text();
-    if (!response.ok && response.status !== 200 && response.status !== 302) {
-      throw new Error(
-        `Google Form rejected the submission (${response.status}): ${responseText}`
-      );
+    let result: { success?: boolean; message?: string };
+
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      result = {
+        success: response.ok,
+        message: responseText,
+      };
     }
 
-    console.log('Google Form response', response.status, responseText);
+    if (!result.success) {
+      throw new Error(result.message || 'Google Script rejected the submission');
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error('Hero submission failed', error);
     return NextResponse.json(
       { success: false, error: (error as Error).message || 'Unknown error' },
       { status: 500 }

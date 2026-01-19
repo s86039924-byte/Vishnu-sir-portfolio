@@ -6,20 +6,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 const assessmentFormUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSdiNK8yfJiIa5btk4QPr2D1mo40nb8V_xN_IF4695QJVY8J3A/viewform?usp=publish-editor';
 
-const coursesData = {
+type Course = {
+  level: string
+  desc: string
+  image?: string
+}
+
+const coursesData: Record<'Mathematics' | 'Biology', Course[]> = {
   Mathematics: [
-    { level: 'Grade 9 & 10', desc: 'Foundation building in algebra, geometry, and trigonometry' },
-    { level: 'Grade 11 & 12', desc: 'Advanced topics: Calculus, Vectors, Probability' },
-    { level: 'JEE Main', desc: 'Comprehensive prep for JEE Main with high-yield problems' },
-    { level: 'JEE Advanced', desc: 'Intensive training for JEE Advanced qualifiers' },
-    { level: 'AP Calculus', desc: 'AP Calculus AB & BC aligned with US curriculum' },
-    { level: 'SAT & International', desc: 'SAT Math + International curricula support' },
+    { level: 'Grade 9 & 10', desc: 'Foundation building in algebra, geometry, and trigonometry', image: '/images/course/9_10_maths.jpeg' },
+    { level: 'Grade 11 & 12', desc: 'Advanced topics: Calculus, Vectors, Probability', image: '/images/course/11_12_maths.jpeg' },
+    { level: 'JEE Main', desc: 'Comprehensive prep for JEE Main with high-yield problems', image: '/images/course/jee_mains_maths.jpeg' },
+    { level: 'JEE Advanced', desc: 'Intensive training for JEE Advanced qualifiers', image: '/images/course/jee_advanced_maths.jpeg' },
+    { level: 'AP Calculus', desc: 'AP Calculus AB & BC aligned with US curriculum', image: '/images/course/AP_calculus.jpeg' },
+    { level: 'SAT & International', desc: 'SAT Math + International curricula support', image: '/images/course/SAT.jpeg' },
   ],
   Biology: [
-    { level: 'Grade 9 & 10', desc: 'Cell biology, genetics, ecology foundations' },
-    { level: 'Grade 11 & 12', desc: 'Advanced anatomy, physiology, genetics' },
-    { level: 'NEET (UG)', desc: 'Complete NEET Biology + organic chemistry prep' },
-    { level: 'International', desc: 'International curricula support (Australia, UK, US)' },
+    { level: 'Grade 9 & 10', desc: 'Cell biology, genetics, ecology foundations', image: '/images/course/9-10_biology.jpeg' },
+    { level: 'Grade 11 & 12', desc: 'Advanced anatomy, physiology, genetics', image: '/images/course/11-12_bilogy.jpeg' },
+    { level: 'NEET (UG)', desc: 'Complete NEET Biology + organic chemistry prep', image: '/images/course/NEET_ug.jpeg' },
+    { level: 'International', desc: 'International curricula support (Australia, UK, US)', image: 'images/course/Internationa_bilog.jpeg' },
   ],
 };
 
@@ -91,9 +97,19 @@ export default function CoursesSection() {
             {coursesData[activeTab].map((course, index) => (
               <motion.div
                 key={course.level}
-                className="course-card"
+                className={`course-card${course.image ? ' course-card--image' : ''}`}
                 variants={courseVariants}
                 whileHover={{ y: -8 }}
+                style={
+                  course.image
+                    ? {
+                        backgroundImage: `linear-gradient(180deg, rgba(248, 249, 252, 0.55), rgba(15, 31, 59, 0.15)), url(${course.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }
+                    : undefined
+                }
               >
                 <div className="course-number">{index + 1}</div>
                 <h3 className="course-level">{course.level}</h3>

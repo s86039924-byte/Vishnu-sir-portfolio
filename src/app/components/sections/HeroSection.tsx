@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TickerText } from './TickerText';
 
 type HeroFormData = {
   name: string;
@@ -11,7 +10,7 @@ type HeroFormData = {
   mobile: string;
   class: string;
   subject: string;
-  batch: string;
+  prefer_batch: string;
 };
 
 const heroHighlights = [
@@ -40,34 +39,6 @@ const titleVariants = {
   },
 };
 
-const wordVariants = {
-  hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.65 },
-  },
-};
-
-const subtitleVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.75 },
-  },
-};
-
-const bodyVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7 },
-  },
-};
-
 const listItemVariants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
@@ -78,22 +49,13 @@ const listItemVariants = {
 };
 
 export default function HeroSection() {
-  const headingWords = useMemo(() => ['Vidya', 'Bhumi'], []);
-  const subheadingWords = useMemo(
-    () =>
-      'Concept-driven Mathematics & Biology coaching for Boards, JEE, NEET, and International Curricula.'.split(
-        ' '
-      ),
-    []
-  );
-
   const [formData, setFormData] = useState<HeroFormData>({
     name: '',
     email: '',
     mobile: '',
     class: '',
     subject: '',
-    batch: '',
+    prefer_batch: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
@@ -122,6 +84,11 @@ export default function HeroSection() {
         throw new Error('Unable to send your request right now');
       }
 
+      const payload = await response.json();
+      if (!payload.success) {
+        throw new Error(payload.error || 'Something went wrong—please try again');
+      }
+
       setStatusMessage('Thanks for reaching out! We will notify you shortly.');
       setFormData({
         name: '',
@@ -129,7 +96,7 @@ export default function HeroSection() {
         mobile: '',
         class: '',
         subject: '',
-        batch: '',
+        prefer_batch: '',
       });
     } catch (error) {
       setStatusMessage(
@@ -151,26 +118,10 @@ export default function HeroSection() {
         >
           <motion.h1 id="hero-heading" className="hero-title hero-title--inline" variants={titleVariants}>
             <span className="hero-title__brand">Vidya Bhumi</span>
-            <span className="hero-title__ticker">
-              <TickerText />
-            </span>
           </motion.h1>
-
-          <motion.p className="hero-subtitle" variants={subtitleVariants}>
-            {subheadingWords.map((word, idx) => (
-              <motion.span
-                key={`${word}-${idx}`}
-                variants={wordVariants}
-                style={{ display: 'inline-block', marginRight: '0.25em' }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.p>
-
-          <motion.p variants={bodyVariants}>
-            From strong foundations to exam-level execution — Grades 9–12, JEE, NEET, AP &amp; IB pathways.
-          </motion.p>
+          <motion.span className="hero-title__strapline" variants={titleVariants}>
+            Building thinkers, not just toppers
+          </motion.span>
 
           <motion.ul className="hero-pill-row" variants={containerVariants}>
             {heroHighlights.map((line, idx) => (
@@ -281,8 +232,8 @@ export default function HeroSection() {
                 <select
                   id="hero-batch"
                   className="hero-form-select"
-                  value={formData.batch}
-                  onChange={handleChange('batch')}
+                  value={formData.prefer_batch}
+                  onChange={handleChange('prefer_batch')}
                   required
                 >
                   <option value="">Select Batch</option>

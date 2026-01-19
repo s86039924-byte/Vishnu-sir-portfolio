@@ -5,7 +5,6 @@ import './additional-styles.css'
 import Navigation from './components/layout/Navigation'
 import ScrollProgress from './components/animations/ScrollProgress'
 import ParticlesBackground from './components/animations/ParticlesBackground'
-import VantaBackground from './components/animations/VantaBackground'
 import StemOverlay from './components/animations/StemOverlay'
 import ScrollManager from './components/layout/ScrollManager'
 
@@ -67,7 +66,6 @@ export default function RootLayout({
       <body className={`${inter.className} ${montserrat.variable}`}>
         <ScrollManager />
         <ScrollProgress />
-        <VantaBackground />
         <ParticlesBackground />
         <StemOverlay />
         <div className="page-grid-overlay" aria-hidden="true" />

@@ -17,8 +17,9 @@ const contactChannels = [
       title: 'Talk on WhatsApp',
       description:
         'Chat instantly with the Vidya Bhumi team for quick clarifications about admission test, batches or results.',
-      action: { label: 'Message on WhatsApp', href: 'https://wa.me/919096139645', external: true },
-      meta: '+91 90961 39645 · Available 10 AM – 8 PM',
+
+        action: { label: 'Message on WhatsApp', href: 'https://wa.me/919096139645', external: true },
+      meta: '+91 9096139645 · Available 10 AM – 8 PM',
     },
     {
       title: 'Email Us',
@@ -44,7 +45,7 @@ export default function ContactPage() {
             <a className="contact-btn contact-btn--primary" href={formUrl} target="_blank" rel="noreferrer">
               Book counselling
             </a>
-            <a className="contact-btn contact-btn--ghost" href="https://wa.me/917470955566" target="_blank" rel="noreferrer">
+            <a className="contact-btn contact-btn--ghost" href="https://wa.me/919096139645" target="_blank" rel="noreferrer">
               WhatsApp now
             </a>
           </div>
@@ -73,13 +74,6 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="contact-help-box">
-            <h3>Visit the campus</h3>
-            <p>
-              Vidya Bhumi Campus, Saharanpur · Monday to Saturday, 10 AM – 7 PM. <br />
-              Walk in for spot counselling, admission form assistance or doubt resolution.
-            </p>
-          </div>
         </div>
       </section>
     </main>
