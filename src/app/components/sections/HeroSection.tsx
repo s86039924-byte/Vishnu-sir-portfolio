@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -12,12 +12,6 @@ type HeroFormData = {
   subject: string;
   prefer_batch: string;
 };
-
-const heroHighlights = [
-  'Concept-first teaching with rigorous problem solving.',
-  'Exam excellence for Boards, JEE, NEET with analytics-led prep.',
-  'International pathways: AP, IB, and Olympiad orientation.',
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,15 +30,6 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.8 },
-  },
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6 },
   },
 };
 
@@ -122,16 +107,15 @@ export default function HeroSection() {
           <motion.span className="hero-title__strapline" variants={titleVariants}>
             Building thinkers, not just toppers
           </motion.span>
-
-          <motion.ul className="hero-pill-row" variants={containerVariants}>
-            {heroHighlights.map((line, idx) => (
-              <motion.li key={line} className="hero-pill" variants={listItemVariants}>
-                <span className="hero-pill__dot" aria-hidden="true" />
-                <span>{line}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
-
+          <div className="hero-building-visual">
+            <Image
+              src="/images/welcome-removebg-preview.png"
+              alt="Welcome banner"
+              width={540}
+              height={380}
+              priority
+            />
+          </div>
         </motion.div>
 
         <motion.div

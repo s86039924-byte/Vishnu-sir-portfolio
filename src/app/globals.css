@@ -540,15 +540,6 @@ pre code {
   padding: 0;
 }
 
-/* Buttons */
-.btn{
-   display:inline-flex; align-items:center; justify-content:center;
-   gap:10px; padding:10px 18px; border-radius:999px; font-weight:700;
-   text-decoration:none; transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
- }
- .btn:active{ transform: translateY(1px); }
-
-
 /* ===== Centering foundation ===== */
 *,
 *::before,
@@ -558,14 +549,6 @@ pre code {
 
 html, body {
   height: 100%;
-}
-
-/* Global container to center content and cap width */
-.container {
-  width: 100%;
-  max-width: 1200px;           /* adjust to 1280/1140 if you prefer */
-  margin-inline: auto;         /* centers horizontally */
-  padding-inline: 24px;        /* safe side gutters */
 }
 
 /* Keep these helpers, but DO NOT center .hero globally */
@@ -900,13 +883,6 @@ a:hover {
   background: var(--btn-hover);
 }
 
-.container {
-  max-width: var(--container-xl);
-  margin: 0 auto;
-  padding: 0 var(--space-32);
-  width: 100%;
-}
-
 section {
   padding: calc(var(--space-32) * 3) 0;
   position: relative;
@@ -1233,21 +1209,7 @@ section {
   color: var(--color-text);
 }
 
-.offerings-title {
-  text-align: center;
-  font-size: var(--font-size-2xl);
-  color: var(--color-warning);
-  margin-bottom: calc(var(--space-32) * 1.5);
-  font-weight: var(--font-weight-bold);
-}
-
-.offerings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: calc(var(--space-32) * 1.25);
-}
-
-.offering-card {
+.offering-title {
   padding: calc(var(--space-32) * 1.5);
   transition: all var(--duration-normal) var(--ease-standard);
   position: relative;
@@ -1315,8 +1277,6 @@ section {
 
 .offering-features li::before {
   content: 'âœ“';
-  position: absolute;
-  left: 0;
   color: var(--color-warning);
   font-weight: var(--font-weight-bold);
 }
@@ -1336,15 +1296,7 @@ section {
   50% { transform: scale(1.1) rotate(1deg); }
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%) rotate(-45deg); }
-  100% { transform: translateX(200%) rotate(-45deg); }
-}
 
-@keyframes scaleInX {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
 
 @media (max-width: 1024px) {
   .founders-grid {
@@ -1416,17 +1368,6 @@ section {
 @media (prefers-reduced-motion: reduce){
   .rw-ticker__item{ animation: none; }
 }
-
-/* Utility motion classes */
-.fade-up { opacity: 0; transform: translateY(16px); animation: fadeUp 0.8s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
-.fade-in { opacity: 0; animation: fadeIn 0.7s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
-.slide-left { opacity: 0; transform: translateX(18px); animation: slideLeft 0.8s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
-.slide-right { opacity: 0; transform: translateX(-18px); animation: slideRight 0.8s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
-.scale-in { opacity: 0; transform: scale(0.96); animation: scaleIn 0.8s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
-
-@keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
-@keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
-@keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
 
 /* ====== NAVBAR FIX ====== */
 /* Root nav bar container */
@@ -2358,22 +2299,6 @@ body{
 /* Kill stray horizontal scroll in tricky areas */
 .rw-hero,.rw-rail,[data-scroll-area]{ overflow-x:hidden; }
 
-
-/* Hero background */
-.rw-hero{
-  position:relative; min-height:78vh; display:grid; align-items:center; overflow:hidden;
-  /* tie hero to the palette but keep a soft spotlight */
-  background:
-    radial-gradient(circle at top, rgba(233, 242, 255, 0.9) 0%, rgba(245, 246, 250, 0) 55%),
-    linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 55%, var(--bg-secondary) 100%);
-  backdrop-filter: saturate(120%);
-}
-.rw-hero::before{
-  content:""; position:absolute; inset:0 0 auto 0; height:22%;
-  background:linear-gradient(180deg,rgba(15,23,42,.18),rgba(15,23,42,0));
-  pointer-events:none;
-}
-
 /* Two-column hero */
 .rw-hero__inner{
   position:relative; z-index:1; display:grid; align-items:center;
@@ -2450,23 +2375,6 @@ body{
 @media (max-width:520px){
   .result-card{ grid-template-columns:1fr; padding:12px; }
   .result-card__media{ width:100%; height:180px; margin-top:8px; }
-}
-
-
-/* Simple announcement/notification bar */
-/* Softer backdrop; less neon, more institutional */
-.rw-hero{
-  /* tie hero to the palette but keep a soft spotlight */
-  background:
-    radial-gradient(circle at top, rgba(233, 242, 255, 0.9) 0%, rgba(245, 246, 250, 0) 55%),
-    linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 55%, var(--bg-secondary) 100%);
-  backdrop-filter: saturate(120%);
-}
-
-/* Gentle top vignette only (avoid heavy mid-gradient band) */
-.rw-hero::before{
-  height: 16%;
-  background: linear-gradient(180deg, rgba(15,23,42,.12), rgba(15,23,42,0));
 }
 
 
@@ -2689,17 +2597,6 @@ body{
     to {
       transform: translateX(0);
       opacity: 1;
-    }
-  }
-
-  @keyframes slideMenuOut {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(100%);
-      opacity: 0;
     }
   }
 
