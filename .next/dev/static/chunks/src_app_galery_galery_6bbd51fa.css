@@ -1,0 +1,339 @@
+/* [project]/src/app/galery/galery.css [app-client] (css) */
+.galery-page {
+  background: radial-gradient(circle at 14% 18%, #60a5fa3b, #0000 42%), radial-gradient(circle at 84% 24%, #f472b629, #0000 38%), radial-gradient(circle at 50% 90%, #14b8a624, #0000 36%), linear-gradient(140deg, #eef3ff 0%, #f7f9ff 46%, #f0f6ff 100%);
+  min-height: 100vh;
+  padding: 108px 0 72px;
+  position: relative;
+}
+
+html[data-theme="dark"] .galery-page {
+  background: radial-gradient(circle at 15% 20%, #3b82f63d, #0000 38%), radial-gradient(circle at 82% 30%, #a855f733, #0000 40%), radial-gradient(circle at 45% 90%, #14b8a633, #0000 34%), linear-gradient(140deg, #111828 0%, #0f172a 45%, #101d34 100%);
+}
+
+.galery-container {
+  z-index: 1;
+  position: relative;
+}
+
+.galery-shell {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: clamp(18px, 2.8vw, 34px) clamp(8px, 1.2vw, 16px) 0;
+}
+
+html[data-theme="dark"] .galery-shell {
+  background: none;
+}
+
+.galery-eyebrow {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #334155;
+  margin: 0;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.galery-title {
+  color: #0f172a;
+  margin: 8px 0 4px;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 1.12;
+}
+
+.galery-subtitle {
+  color: #334155;
+  max-width: 660px;
+  margin: 0;
+  font-size: 1rem;
+}
+
+html[data-theme="dark"] .galery-eyebrow, html[data-theme="dark"] .galery-subtitle {
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] .galery-title {
+  color: #e2e8f0;
+}
+
+.galery-options {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  display: flex;
+}
+
+.galery-chip {
+  text-transform: capitalize;
+  color: #0f172a;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: transform .2s, background .2s, color .2s;
+}
+
+.galery-chip:hover {
+  transform: translateY(-1px);
+}
+
+.galery-chip.is-active {
+  color: #f8fafc;
+  background: #0f172a;
+}
+
+html[data-theme="dark"] .galery-chip {
+  color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+html[data-theme="dark"] .galery-chip.is-active {
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.galery-stage {
+  grid-template-columns: 1fr 1.25fr 1fr;
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 22px);
+  min-height: clamp(300px, 35vw, 460px);
+  margin-top: clamp(24px, 3.2vw, 38px);
+  display: grid;
+}
+
+.galery-card {
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 30px #0f172a33;
+}
+
+.galery-card img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.galery-video-placeholder {
+  color: #e2e8f0;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: radial-gradient(circle at 20% 20%, #38bdf840, #0000 40%), radial-gradient(circle at 80% 70%, #6366f138, #0000 44%), linear-gradient(140deg, #0f172a 0%, #1e293b 100%);
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  display: grid;
+}
+
+.galery-video-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.galery-video-wrap iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.galery-card--main {
+  aspect-ratio: 16 / 10;
+  z-index: 2;
+  transform: translateY(-6px);
+}
+
+.galery-card--side {
+  aspect-ratio: 16 / 10;
+  opacity: .8;
+  filter: saturate(.9);
+}
+
+.galery-card--left {
+  transform: translateX(38px)scale(.94);
+}
+
+.galery-card--right {
+  transform: translateX(-38px)scale(.94);
+}
+
+.galery-card__overlay {
+  color: #f8fafc;
+  background: linear-gradient(#0f172a00 0%, #0f172ab8 75%);
+  padding: 18px 18px 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.galery-video-play {
+  color: #f8fafc;
+  cursor: pointer;
+  z-index: 2;
+  background: #0f172ac7;
+  border: 0;
+  border-radius: 999px;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: grid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px #0f172a59;
+}
+
+html[data-theme="dark"] .galery-video-play {
+  color: #0f172a;
+  background: #f8fafcdb;
+}
+
+.galery-card__overlay h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.galery-card__overlay p {
+  color: #f8fafce6;
+  margin: 6px 0 0;
+  font-size: .92rem;
+}
+
+.galery-controls {
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+  display: flex;
+}
+
+.galery-controls button {
+  color: #0f172a;
+  cursor: pointer;
+  background: #ffffffbf;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .galery-controls button {
+  color: #f8fafc;
+  background: #0f172ad6;
+  border-color: #94a3b8;
+}
+
+@media (max-width: 1100px) {
+  .galery-shell {
+    max-width: 1040px;
+  }
+
+  .galery-stage {
+    grid-template-columns: .95fr 1.2fr .95fr;
+    min-height: clamp(280px, 38vw, 400px);
+  }
+
+  .galery-card--left {
+    transform: translateX(24px)scale(.95);
+  }
+
+  .galery-card--right {
+    transform: translateX(-24px)scale(.95);
+  }
+}
+
+@media (max-width: 900px) {
+  .galery-page {
+    padding: 94px 0 46px;
+  }
+
+  .galery-shell {
+    padding-top: 10px;
+  }
+
+  .galery-stage {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin-top: 22px;
+  }
+
+  .galery-card--side {
+    display: none;
+  }
+
+  .galery-card--main {
+    aspect-ratio: 16 / 11;
+    transform: none;
+  }
+
+  .galery-controls {
+    margin-top: 16px;
+  }
+
+  .galery-video-play {
+    width: 58px;
+    height: 58px;
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .galery-page {
+    padding: 88px 0 40px;
+  }
+
+  .galery-title {
+    font-size: clamp(1.55rem, 7.2vw, 2rem);
+  }
+
+  .galery-subtitle {
+    font-size: .94rem;
+  }
+
+  .galery-options {
+    gap: 8px;
+  }
+
+  .galery-chip {
+    text-align: center;
+    flex: calc(50% - 8px);
+    min-width: 130px;
+    padding: 9px 12px;
+    font-size: .92rem;
+  }
+
+  .galery-card__overlay {
+    padding: 14px 14px 12px;
+  }
+
+  .galery-card__overlay h2 {
+    font-size: 1.05rem;
+  }
+
+  .galery-card__overlay p {
+    font-size: .84rem;
+  }
+
+  .galery-controls button {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .galery-video-play {
+    width: 52px;
+    height: 52px;
+    font-size: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=src_app_galery_galery_6bbd51fa.css.map*/

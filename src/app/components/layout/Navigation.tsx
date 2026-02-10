@@ -19,7 +19,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Dost', href: '/dost', variant: 'dost' },
   { label: 'Faculty', href: '/#faculty' },
   { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Gallery', href: '/#gallery' },
+  { label: 'Gallery', href: '/galery' },
   { label: 'Contact', href: '/contact' },
 ]
 
