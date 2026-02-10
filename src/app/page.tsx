@@ -5,7 +5,7 @@ import CoursesSection from './components/sections/CoursesSection'
 import FacultySection from './components/sections/FacultySection'
 import HistoryVisionSection from './components/sections/HistoryVisionSection'
 import TeachingMethodologySection from './components/sections/TeachingMethodologySection'
-import Footer from './components/layout/Footer'
+import Footer from './components/layout/footer/Footer'
 import FloatingContact from './components/layout/FloatingContact'
 
 export default function HomePage() {
