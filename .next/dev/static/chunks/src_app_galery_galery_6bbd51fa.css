@@ -141,8 +141,20 @@ html[data-theme="dark"] .galery-chip.is-active {
   height: 100%;
 }
 
+.galery-video-wrap.is-rotated {
+  overflow: hidden;
+}
+
+.galery-video-wrap.is-rotated iframe {
+  transform-origin: center;
+  width: 177.78%;
+  height: 100%;
+  margin-left: -38.89%;
+  transform: rotate(-90deg);
+}
+
 .galery-card--main {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 11;
   z-index: 2;
   transform: translateY(-6px);
 }

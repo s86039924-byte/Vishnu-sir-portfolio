@@ -1,9 +1,28 @@
-[00:00:00.964] Server  LOG      ✓ Ready in 725ms
-[00:00:06.863] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.116] Browser WARN    Image with src "http://localhost:3001/images/welcome-removebg-preview.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:07.116] Browser WARN    Image with src "http://localhost:3001/images/whatsapp_icon.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:01:09.670] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:08:37.378] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:37.575] Browser WARN    Image with src "http://localhost:3001/images/welcome-removebg-preview.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:08:37.575] Browser WARN    Image with src "http://localhost:3001/images/whatsapp_icon.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:08:43.721] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:00.907] Server  LOG      ✓ Ready in 667ms
+[00:00:06.212] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.440] Browser WARN    Image with src "http://localhost:3001/images/welcome-removebg-preview.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:06.440] Browser WARN    Image with src "http://localhost:3001/images/whatsapp_icon.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:09.008] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:03.877] Server  LOG      ✓ Compiled in 237ms
+[00:05:27.362] Server  LOG      ✓ Compiled in 104ms
+[00:05:54.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:54.822] Browser WARN    Image with src "http://localhost:3001/images/welcome-removebg-preview.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:54.822] Browser WARN    Image with src "http://localhost:3001/images/whatsapp_icon.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:05:57.617] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:06:51.685] Server  LOG      ✓ Compiled in 111ms
+[00:08:17.557] Server  LOG      ✓ Compiled in 114ms
+[00:08:25.053] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:51.132] Server  LOG      ✓ Compiled in 33ms
+[00:09:09.756] Server  LOG      ✓ Compiled in 11ms
+[00:09:16.879] Server  LOG      ✓ Compiled in 13ms
+[00:09:21.347] Server  LOG      ✓ Compiled in 9ms
+[00:09:23.057] Server  LOG      ✓ Compiled in 13ms
+[00:09:30.029] Server  LOG      ✓ Compiled in 11ms
+[00:10:08.958] Server  LOG      ✓ Compiled in 29ms
+[00:10:15.158] Server  LOG      ✓ Compiled in 10ms
+[00:10:22.748] Server  LOG      ✓ Compiled in 10ms
+[00:10:24.031] Server  LOG      ✓ Compiled in 16ms
+[00:10:27.342] Server  LOG      ✓ Compiled in 12ms
+[00:10:29.032] Server  LOG      ✓ Compiled in 8ms
+[00:10:42.413] Server  LOG      ✓ Compiled in 4ms
+[00:10:43.803] Server  LOG      ✓ Compiled in 10ms

@@ -1,9 +1,6 @@
 {
-  "/about_us/page": "app/about_us/page.js",
   "/contact/page": "app/contact/page.js",
-  "/dost/page": "app/dost/page.js",
   "/galery/page": "app/galery/page.js",
   "/page": "app/page.js",
-  "/testimonials/page": "app/testimonials/page.js",
-  "/vidyabhumi_unique/page": "app/vidyabhumi_unique/page.js"
+  "/testimonials/page": "app/testimonials/page.js"
 }

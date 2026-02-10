@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { drivePreviewUrl, getDriveId } from '@/lib/embed'
 import './galery.css'
 
 type GalleryCategory = 'classroom' | 'celebration' | 'instruction' | 'testimonial'
@@ -11,6 +12,8 @@ type GalleryItem = {
   caption: string
   image?: string
   youtubeId?: string
+  driveVideoUrl?: string
+  rotateVideo90?: boolean
 }
 
 const CATEGORY_ORDER: GalleryCategory[] = ['classroom', 'celebration', 'instruction', 'testimonial']
@@ -99,7 +102,8 @@ const GALLERY_DATA: Record<GalleryCategory, GalleryItem[]> = {
       id: 'tes-1',
       title: 'Student Feedback',
       caption: 'Stories of confidence and progress.',
-      image: '/images/image_.png',
+      driveVideoUrl: 'https://drive.google.com/file/d/1fdhiCeO3szbVitBmxwb-Lf5AHcaCba8f/view?usp=sharing',
+      rotateVideo90: true,
     },
     {
       id: 'tes-2',
@@ -124,6 +128,19 @@ const GALLERY_DATA: Record<GalleryCategory, GalleryItem[]> = {
 
 function wrapIndex(index: number, length: number) {
   return (index + length) % length
+}
+
+function getEmbedSrc(item: GalleryItem): string | null {
+  if (item.youtubeId) {
+    return `https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&rel=0`
+  }
+
+  if (item.driveVideoUrl) {
+    const driveId = getDriveId(item.driveVideoUrl)
+    if (driveId) return drivePreviewUrl(driveId)
+  }
+
+  return null
 }
 
 function CardMedia({ item }: { item: GalleryItem }) {
@@ -153,6 +170,7 @@ export default function GaleryPage() {
       right: currentItems[wrapIndex(activeIndex + 1, total)],
     }
   }, [activeIndex, currentItems])
+  const centerEmbedSrc = getEmbedSrc(visibleCards.center)
 
   const changeCategory = (category: GalleryCategory) => {
     setActiveCategory(category)
@@ -200,10 +218,10 @@ export default function GaleryPage() {
             </article>
 
             <article className="galery-card galery-card--main">
-              {visibleCards.center.youtubeId && isVideoPlaying ? (
-                <div className="galery-video-wrap">
+              {centerEmbedSrc && isVideoPlaying ? (
+                <div className={`galery-video-wrap${visibleCards.center.rotateVideo90 ? ' is-rotated' : ''}`}>
                   <iframe
-                    src={`https://www.youtube.com/embed/${visibleCards.center.youtubeId}?autoplay=1&rel=0`}
+                    src={centerEmbedSrc}
                     title={visibleCards.center.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -213,11 +231,11 @@ export default function GaleryPage() {
               ) : (
                 <>
                   <CardMedia item={visibleCards.center} />
-                  {visibleCards.center.youtubeId && (
+                  {centerEmbedSrc && (
                     <button
                       type="button"
                       className="galery-video-play"
-                      aria-label="Play instruction video"
+                      aria-label="Play video"
                       onClick={() => setIsVideoPlaying(true)}
                     >
                       ▶
