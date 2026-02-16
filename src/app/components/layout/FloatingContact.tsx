@@ -3,10 +3,13 @@
 import Image from 'next/image';
 
 export default function FloatingContact() {
+  const whatsappNumber = '+919096139645';
+  const whatsappHref = `https://wa.me/${whatsappNumber.replace('+', '')}`;
+
   return (
     <div className="floating-contact">
       <a
-        href="https://wa.me/9096139645"
+        href={whatsappHref}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
@@ -33,7 +36,7 @@ export default function FloatingContact() {
           height={36}
           priority
         />
-        <span className="floating-contact__label floating-contact__label--call">Call Us</span>
+        <span className="floating-contact__label floating-contact__label--call">+91 9096139645</span>
       </a>
     </div>
   );

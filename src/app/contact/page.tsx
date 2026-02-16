@@ -4,6 +4,8 @@ import './contact.css';
 
 const formUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSdiNK8yfJiIa5btk4QPr2D1mo40nb8V_xN_IF4695QJVY8J3A/viewform?usp=publish-editor';
+const whatsappNumber = '+919096139645';
+const whatsappHref = `https://wa.me/${whatsappNumber.replace('+', '')}`;
 
 const contactChannels = [
   {
@@ -18,7 +20,7 @@ const contactChannels = [
       description:
         'Chat instantly with the Vidya Bhumi team for quick clarifications about admission test, batches or results.',
 
-        action: { label: 'Message on WhatsApp', href: 'https://wa.me/919096139645', external: true },
+        action: { label: 'Message on WhatsApp', href: whatsappHref, external: true },
       meta: '+91 9096139645 · Available 10 AM – 8 PM',
     },
     {
@@ -45,7 +47,7 @@ export default function ContactPage() {
             <a className="contact-btn contact-btn--primary" href={formUrl} target="_blank" rel="noreferrer">
               Book counselling
             </a>
-            <a className="contact-btn contact-btn--ghost" href="https://wa.me/919096139645" target="_blank" rel="noreferrer">
+            <a className="contact-btn contact-btn--ghost" href={whatsappHref} target="_blank" rel="noreferrer">
               WhatsApp now
             </a>
           </div>

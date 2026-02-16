@@ -1,30 +1,44 @@
-const badgeHighlights = [
-  'Stories from achievers coming soon',
-  'Video interviews + student-led walkthroughs',
-  'Guidance, milestones, and dream destinations',
-]
+import { drivePreviewUrl, getDriveId } from '@/lib/embed'
+import './testimonials.css'
+
+const driveVideoUrl =
+  'https://drive.google.com/file/d/1fdhiCeO3szbVitBmxwb-Lf5AHcaCba8f/view?usp=sharing'
+
+const driveId = getDriveId(driveVideoUrl)
+const testimonialVideoSrc = driveId ? drivePreviewUrl(driveId) : null
 
 export default function TestimonialsPage() {
   return (
-    <main className="page testimonials-page">
-      <section className="testimonials-coming-soon">
-        <div className="coming-soon-panel">
-          <p className="eyebrow">Testimonials</p>
-          <h1>Stories are loading...</h1>
-          <p>
-            We are building a curated showcase of Vidya Bhumi alumni reflections, classroom anecdotes, and
-            milestone journeys. Hang tight while we craft the perfect collection.
-          </p>
-          <div className="badge-row">
-            {badgeHighlights.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+    <main className="page testimonials-page testimonials-video-page">
+      <section className="testimonials-video">
+        <div className="container testimonials-video__container">
+          <div className="testimonials-video__header">
+            <p className="testimonials-video__eyebrow">Testimonials</p>
+            <h1>Student Voice</h1>
+            <p className="testimonials-video__subtitle">
+              Real experience shared by our students and parents.
+            </p>
           </div>
-        </div>
-        <div className="sparkle-ring" aria-hidden="true">
-          <div className="sparkle-point" />
-          <div className="sparkle-point" />
-          <div className="sparkle-point" />
+
+          <div className="testimonials-video__frame is-rotated">
+            <span className="testimonials-video__corner-tag">Student Voice</span>
+            {testimonialVideoSrc ? (
+              <iframe
+                src={testimonialVideoSrc}
+                title="Vidya Bhumi testimonial video"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            ) : (
+              <p>
+                Testimonial video is unavailable right now.{' '}
+                <a href={driveVideoUrl} target="_blank" rel="noreferrer">
+                  Open in Google Drive
+                </a>
+              </p>
+            )}
+          </div>
         </div>
       </section>
     </main>

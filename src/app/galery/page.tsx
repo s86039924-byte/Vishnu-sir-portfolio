@@ -102,8 +102,7 @@ const GALLERY_DATA: Record<GalleryCategory, GalleryItem[]> = {
       id: 'tes-1',
       title: 'Student Feedback',
       caption: 'Stories of confidence and progress.',
-      driveVideoUrl: 'https://drive.google.com/file/d/1fdhiCeO3szbVitBmxwb-Lf5AHcaCba8f/view?usp=sharing',
-      rotateVideo90: true,
+      image: '/images/image_4.png',
     },
     {
       id: 'tes-2',

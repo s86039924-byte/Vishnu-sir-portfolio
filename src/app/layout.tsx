@@ -7,6 +7,7 @@ import ScrollProgress from './components/animations/ScrollProgress'
 import ParticlesBackground from './components/animations/ParticlesBackground'
 import StemOverlay from './components/animations/StemOverlay'
 import ScrollManager from './components/layout/ScrollManager'
+import FloatingContact from './components/layout/FloatingContact'
 
 import Script from 'next/script'
 
@@ -68,6 +69,7 @@ export default function RootLayout({
         <div className="page-grid-overlay" aria-hidden="true" />
 
         <Navigation />
+        <FloatingContact />
 
         <main className="page">{children}</main>
       </body>

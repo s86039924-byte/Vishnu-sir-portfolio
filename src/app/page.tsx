@@ -6,7 +6,6 @@ import FacultySection from './components/sections/FacultySection'
 import HistoryVisionSection from './components/sections/HistoryVisionSection'
 import TeachingMethodologySection from './components/sections/TeachingMethodologySection'
 import Footer from './components/layout/footer/Footer'
-import FloatingContact from './components/layout/FloatingContact'
 
 export default function HomePage() {
   return (
@@ -17,7 +16,6 @@ export default function HomePage() {
       <HistoryVisionSection />
       <TeachingMethodologySection />
       <Footer />
-      <FloatingContact />
     </>
   )
 }
