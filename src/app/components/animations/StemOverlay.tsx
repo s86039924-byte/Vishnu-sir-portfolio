@@ -46,6 +46,7 @@ export default function StemOverlay() {
 
   return (
     <div
+      className="stem-overlay-layer"
       aria-hidden="true"
       style={{
         position: 'fixed',

@@ -75,6 +75,13 @@ export default function DostClient() {
     };
 
     useEffect(() => {
+        document.body.classList.add("dost-route");
+        return () => {
+            document.body.classList.remove("dost-route");
+        };
+    }, []);
+
+    useEffect(() => {
         // On initial load: if cookies exist => auto login, else show popup + load login page
         const phone = getCookie("phone");
         const pass = getCookie("password");
@@ -134,7 +141,7 @@ export default function DostClient() {
                         >
                             ×
                         </button>
-                        <h3  style={{ marginBottom: "15px" }}>Enter Details</h3>
+                        <h3 className="popupTitle">Enter Details</h3>
 
                         <input
                             type="text"
@@ -225,19 +232,27 @@ export default function DostClient() {
 
         .popupContent {
           background: #fff;
-          padding: 20px;
+          padding: 24px;
           border-radius: 10px;
-          width: 300px;
+          width: 360px;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
           text-align: center;
           position: relative;
-          padding-top: 40px;
+          padding-top: 48px;
+        }
+
+        .popupTitle {
+          margin: 0 0 16px;
+          color: #1f2937;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.2;
         }
 
         .popupContent input {
-          width: 90%;
-          padding: 8px;
-          margin: 8px 0;
+          width: 92%;
+          padding: 10px;
+          margin: 10px 0;
           border: 1px solid #ccc;
           border-radius: 5px;
           outline: none;
@@ -246,7 +261,7 @@ export default function DostClient() {
         .popupContent button {
           background: #007bff;
           color: white;
-          padding: 10px 15px;
+          padding: 10px 18px;
           border: none;
           border-radius: 5px;
           cursor: pointer;
@@ -260,6 +275,20 @@ export default function DostClient() {
           color: red;
           font-size: 14px;
           margin-top: 5px;
+        }
+      `}</style>
+            <style jsx global>{`
+        body.dost-route [data-nav].site-nav,
+        body.dost-route .floating-contact,
+        body.dost-route .scroll-progress,
+        body.dost-route .rw-bg-layer,
+        body.dost-route .stem-overlay-layer,
+        body.dost-route .page-grid-overlay {
+          display: none !important;
+        }
+
+        body.dost-route .page {
+          padding-top: 0 !important;
         }
       `}</style>
         </div>

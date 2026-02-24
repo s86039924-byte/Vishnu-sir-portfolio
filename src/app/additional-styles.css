@@ -4532,8 +4532,7 @@ html[data-theme='dark'] #home {
 .floating-contact {
   position: fixed;
   right: max(12px, env(safe-area-inset-right));
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: max(14px, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -4582,6 +4581,25 @@ html[data-theme='dark'] #home {
   font-size: 0.95rem;
 }
 
+.floating-contact__number {
+  text-decoration: none;
+  text-align: center;
+  background: white;
+  color: #0F1F3B;
+  padding: 6px 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(11, 31, 59, 0.2);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 700;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.1;
+}
+
+.floating-contact__number:hover {
+  box-shadow: 0 10px 26px rgba(11, 31, 59, 0.28);
+}
+
 .floating-contact__bubble:hover .floating-contact__label {
   opacity: 1;
   transform: translate(-6px, -50%);
@@ -4590,6 +4608,7 @@ html[data-theme='dark'] #home {
 @media (max-width: 640px) {
   .floating-contact {
     right: max(8px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
   }
 }
 

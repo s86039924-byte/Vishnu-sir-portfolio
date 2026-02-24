@@ -3,8 +3,10 @@
 import Image from 'next/image';
 
 export default function FloatingContact() {
-  const whatsappNumber = '+919096139645';
-  const whatsappHref = `https://wa.me/${whatsappNumber.replace('+', '')}`;
+  const mobileNumber = '9096139645';
+  const displayNumber = `+91 ${mobileNumber}`;
+  const whatsappHref = `https://wa.me/91${mobileNumber}`;
+  const callHref = `tel:+91${mobileNumber}`;
 
   return (
     <div className="floating-contact">
@@ -22,10 +24,10 @@ export default function FloatingContact() {
           height={36}
           priority
         />
-        <span className="floating-contact__label">WhatsApp</span>
+        <span className="floating-contact__label">WhatsApp {displayNumber}</span>
       </a>
       <a
-        href="tel:+919096139645"
+        href={callHref}
         aria-label="Call Vidya Bhumi"
         className="floating-contact__bubble"
       >
@@ -36,7 +38,10 @@ export default function FloatingContact() {
           height={36}
           priority
         />
-        <span className="floating-contact__label floating-contact__label--call">+91 9096139645</span>
+        <span className="floating-contact__label floating-contact__label--call">Call Us</span>
+      </a>
+      <a href={callHref} className="floating-contact__number" aria-label={`Call ${displayNumber}`}>
+        {displayNumber}
       </a>
     </div>
   );
