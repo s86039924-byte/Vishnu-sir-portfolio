@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { LOGO } from '@/lib/constants'
 
 type NavItem = {
@@ -24,6 +25,8 @@ const NAV_ITEMS: NavItem[] = [
 ]
 
 export default function Navigation() {
+  const pathname = usePathname()
+  const isDostRoute = pathname === '/dost' || pathname.startsWith('/dost/')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -79,6 +82,10 @@ export default function Navigation() {
     if (e.target === e.currentTarget) {
       closeMobileMenu()
     }
+  }
+
+  if (isDostRoute) {
+    return null
   }
 
   return (

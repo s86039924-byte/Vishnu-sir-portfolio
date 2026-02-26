@@ -75,13 +75,6 @@ export default function DostClient() {
     };
 
     useEffect(() => {
-        document.body.classList.add("dost-route");
-        return () => {
-            document.body.classList.remove("dost-route");
-        };
-    }, []);
-
-    useEffect(() => {
         // On initial load: if cookies exist => auto login, else show popup + load login page
         const phone = getCookie("phone");
         const pass = getCookie("password");
@@ -275,20 +268,6 @@ export default function DostClient() {
           color: red;
           font-size: 14px;
           margin-top: 5px;
-        }
-      `}</style>
-            <style jsx global>{`
-        body.dost-route [data-nav].site-nav,
-        body.dost-route .floating-contact,
-        body.dost-route .scroll-progress,
-        body.dost-route .rw-bg-layer,
-        body.dost-route .stem-overlay-layer,
-        body.dost-route .page-grid-overlay {
-          display: none !important;
-        }
-
-        body.dost-route .page {
-          padding-top: 0 !important;
         }
       `}</style>
         </div>

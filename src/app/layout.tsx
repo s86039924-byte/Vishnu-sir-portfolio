@@ -8,6 +8,7 @@ import ParticlesBackground from './components/animations/ParticlesBackground'
 import StemOverlay from './components/animations/StemOverlay'
 import ScrollManager from './components/layout/ScrollManager'
 import FloatingContact from './components/layout/FloatingContact'
+import RouteClassManager from './components/layout/RouteClassManager'
 
 import Script from 'next/script'
 
@@ -62,6 +63,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${inter.className} ${montserrat.variable}`}>
+        <RouteClassManager />
         <ScrollManager />
         <ScrollProgress />
         <ParticlesBackground />
