@@ -64,14 +64,16 @@ export default function RootLayout({
 
       <body className={`${inter.className} ${montserrat.variable}`}>
         <RouteClassManager />
-        <ScrollManager />
-        <ScrollProgress />
-        <ParticlesBackground />
-        <StemOverlay />
-        <div className="page-grid-overlay" aria-hidden="true" />
+        <div className="app-shell">
+          <ScrollManager />
+          <ScrollProgress />
+          <ParticlesBackground />
+          <StemOverlay />
+          <div className="page-grid-overlay" aria-hidden="true" />
 
-        <Navigation />
-        <FloatingContact />
+          <Navigation />
+          <FloatingContact />
+        </div>
 
         <main className="page">{children}</main>
       </body>

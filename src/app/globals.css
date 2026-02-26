@@ -3360,15 +3360,18 @@ html[data-theme='dark'] .rw-hero__right .result-card .result-card__img-wrap {
 .result-card__tag { color: #0f172a; }
 html[data-theme='dark'] .result-card__tag { color: #fef3c7; }
 
-body.dost-route [data-nav].site-nav,
-body.dost-route .floating-contact,
-body.dost-route .scroll-progress,
-body.dost-route .rw-bg-layer,
-body.dost-route .stem-overlay-layer,
-body.dost-route .page-grid-overlay {
+body.dost-route .app-shell {
   display: none !important;
 }
 
 body.dost-route .page {
-  padding-top: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+body.dost-route {
+  background: #ffffff !important;
 }

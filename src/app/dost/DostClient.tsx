@@ -163,7 +163,7 @@ export default function DostClient() {
             {/* Iframe */}
             {iframeSrc && (
                 <iframe
-                    className="frame"
+                    className={`frame${showPopup ? " frameBlurred" : ""}`}
                     src={iframeSrc}
                     allowFullScreen
                     title="Vidya Bhumi Dost"
@@ -173,10 +173,13 @@ export default function DostClient() {
 
             <style jsx>{`
         .dost-root {
+          position: fixed;
+          inset: 0;
           margin: 0;
           padding: 0;
-          width: 100%;
+          width: 100vw;
           height: 100vh;
+          background: #fff;
           font-family: Arial, sans-serif;
         }
 
@@ -185,6 +188,11 @@ export default function DostClient() {
           width: 100%;
           height: 100%;
           display: block;
+          transition: filter 0.2s ease;
+        }
+
+        .frameBlurred {
+          filter: blur(4px) brightness(0.96);
         }
 
         .popup {
@@ -193,7 +201,9 @@ export default function DostClient() {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.6);
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           display: flex;
           align-items: center;
           justify-content: center;
