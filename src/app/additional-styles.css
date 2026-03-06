@@ -3962,7 +3962,15 @@ html[data-theme='dark'] .detail-row .value {
 }
 
 html[data-theme='dark'] .faculty-bio {
-  color: #a0a8b6;
+  color: rgba(248, 250, 252, 0.88);
+}
+
+.faculty-details .value {
+  color: var(--text-muted, #4b5563);
+}
+
+html[data-theme='dark'] .faculty-details .value {
+  color: rgba(241, 245, 249, 0.82);
 }
 
 .faculty-accent {
@@ -5290,5 +5298,25 @@ html[data-theme='dark'] .hero-form-note {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+  }
+}
+
+@media (min-width: 1101px) {
+  .faculty-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .faculty-card {
+    padding: 18px 20px 24px;
+  }
+
+  .faculty-name {
+    font-size: 22px;
+  }
+
+  .faculty-bio,
+  .detail-row {
+    font-size: 14px;
   }
 }

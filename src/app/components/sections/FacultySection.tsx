@@ -5,6 +5,16 @@ import { motion } from 'framer-motion';
 
 const faculty = [
   {
+    name: 'Vaishnavi Shettigar',
+    subject: 'Biology Faculty',
+    specialization: 'Grades 9–12, NEET, International Biology',
+    experience: '8+ years',
+    description: 'Experienced Biology educator emphasizing NCERT mastery, clear conceptual explanations, and diagram-based learning. Expert in high-yield exam questions.',
+    style: 'Conceptual • Detailed • Application-Driven',
+    icon: '🔬',
+    image: "/images/founders/vaishnavi_ma'am.png",
+  },
+  {
     name: 'Vishnu Walke',
     subject: 'Mathematics Faculty',
     specialization: 'Grades 11–12, JEE Main & Advanced, AP Calculus, SAT',
@@ -15,14 +25,15 @@ const faculty = [
     image: '/images/founders/vishnu_sir.png',
   },
   {
-    name: 'Vaishnavi Shettigar',
-    subject: 'Biology Faculty',
-    specialization: 'Grades 9–12, NEET, International Biology',
-    experience: '8+ years',
-    description: 'Experienced Biology educator emphasizing NCERT mastery, clear conceptual explanations, and diagram-based learning. Expert in high-yield exam questions.',
-    style: 'Conceptual • Detailed • Application-Driven',
-    icon: '🔬',
-    image: "/images/founders/vaishnavi_ma'am.png",
+    name: 'Rajeev Tiwari',
+    subject: 'Finance & Accounts Faculty',
+    specialization: 'PG - Finance',
+    experience: '15+ years',
+    description:
+      '15+ industry experience in banking and finance. Co-founder of M/S Hexaconn Finance Pvt Ltd, Noida. Faculty for Finance and Accounts.',
+    style: 'Industry-Led • Practical • Finance-Focused',
+    icon: '💼',
+    image: '/images/founders/Rajeev Tiwari.png',
   },
 ];
 
