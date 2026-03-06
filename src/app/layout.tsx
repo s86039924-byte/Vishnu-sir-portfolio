@@ -1,3 +1,4 @@
+import type { Viewport } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import './additional-styles.css'
@@ -23,6 +24,12 @@ const montserrat = Montserrat({
   display: 'swap',
   variable: '--font-heading',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
 
 export default function RootLayout({
   children,

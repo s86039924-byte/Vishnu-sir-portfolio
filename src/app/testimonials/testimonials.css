@@ -127,6 +127,24 @@ html[data-theme='dark'] .testimonials-video__frame {
   box-shadow: 0 20px 46px rgba(2, 6, 23, 0.55);
 }
 
+@media (max-width: 1024px) {
+  .testimonials-page {
+    padding: 96px 0 56px;
+  }
+
+  .testimonials-video__container.container {
+    width: min(100%, 960px);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .testimonials-video__frame {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .testimonials-page {
     padding-top: 90px;

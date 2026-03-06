@@ -273,6 +273,30 @@ html[data-theme='dark'] .galery-controls button {
   }
 }
 
+@media (min-width: 901px) and (max-width: 1280px) {
+  .galery-page {
+    padding: 96px 0 52px;
+  }
+
+  .galery-shell {
+    padding-inline: 12px;
+  }
+
+  .galery-stage {
+    grid-template-columns: 0.85fr 1.3fr 0.85fr;
+    gap: 14px;
+    min-height: clamp(280px, 34vw, 380px);
+  }
+
+  .galery-card--left {
+    transform: translateX(14px) scale(0.95);
+  }
+
+  .galery-card--right {
+    transform: translateX(-14px) scale(0.95);
+  }
+}
+
 @media (max-width: 900px) {
   .galery-page {
     padding: 94px 0 46px;

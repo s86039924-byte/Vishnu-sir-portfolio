@@ -185,3 +185,18 @@ html[data-theme='dark'] .contact-help-box {
     flex-direction: column;
   }
 }
+
+@media (max-width: 1024px) {
+  .contact-page .container {
+    padding-inline: 24px;
+  }
+
+  .contact-hero {
+    padding: 72px 0 56px;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}

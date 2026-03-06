@@ -5111,3 +5111,184 @@ html[data-theme='dark'] .hero-form-note {
     animation: none;
   }
 }
+
+/* Tablet-specific layout corrections for Android pads and similar devices */
+@media (max-width: 1024px) {
+  .hero-section.rw-hero {
+    overflow: visible;
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  .hero-section.rw-hero .hero-content,
+  .rw-hero > .container,
+  .rw-hero .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 24px;
+  }
+
+  .rw-hero__left,
+  .rw-hero .hero-copy,
+  .hero-form-container {
+    width: 100%;
+    max-width: min(100%, 640px);
+    margin-inline: auto;
+  }
+
+  .hero-building-visual {
+    margin-inline: auto;
+  }
+
+  .history-grid,
+  .teaching-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .faculty-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Moto tablets: G20 portrait/larger Android tablets portrait */
+@media (min-width: 768px) and (max-width: 900px) {
+  .container {
+    padding-inline: 24px;
+  }
+
+  .hero-section.rw-hero {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+
+  .rw-hero > .container,
+  .rw-hero .hero-content,
+  .history-grid,
+  .teaching-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .rw-hero__left,
+  .rw-hero .hero-copy,
+  .hero-form-container,
+  .teaching-card,
+  .history-copy,
+  .history-timeline {
+    width: 100%;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .hero-building-visual {
+    width: min(100%, 460px);
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+}
+
+/* Moto Tab G62/G70 portrait and tablet landscape safety */
+@media (min-width: 901px) and (max-width: 1280px) {
+  .container {
+    padding-inline: 28px;
+  }
+
+  .hero-section.rw-hero .hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+    align-items: start;
+    gap: 28px;
+  }
+
+  .rw-hero__left,
+  .rw-hero .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-form-container {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+
+  .history-grid,
+  .teaching-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Tablet landscape compacting for 1280x800 style screens */
+@media (min-width: 1000px) and (max-width: 1280px) and (max-height: 850px) {
+  .hero-section.rw-hero .hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: 24px;
+  }
+
+  .hero-building-visual {
+    width: min(100%, 420px);
+  }
+
+  .hero-form {
+    padding: 12px;
+  }
+}
+
+/* Safer tablet behavior for about, unique, and courses pages */
+@media (max-width: 1024px) {
+  .about-container,
+  .special-container,
+  .courses-page .container {
+    padding-inline: 24px;
+  }
+
+  .about-grid,
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .about-card {
+    height: auto;
+    min-height: 0;
+  }
+
+  .courses-hero__grid,
+  .courses-sections__grid,
+  .course-list-grid,
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .course-block,
+  .course-visual,
+  .courses-offered,
+  .courses-assessment,
+  .dream-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .course-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

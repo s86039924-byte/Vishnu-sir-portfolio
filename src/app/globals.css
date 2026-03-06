@@ -3375,3 +3375,170 @@ body.dost-route .page {
 body.dost-route {
   background: #ffffff !important;
 }
+
+/* Tablet navbar collapse to avoid desktop menu overflow on mid-width devices */
+@media (max-width: 1100px) {
+  [data-nav].site-nav nav ul {
+    gap: 0;
+  }
+
+  [data-nav].site-nav .nav-desktop {
+    display: none;
+  }
+
+  [data-nav].site-nav .mobile-toggle,
+  .nav-mobile-dost {
+    display: inline-flex;
+  }
+}
+
+/* Final tablet/mobile nav override: one working menu system for phones and tablets */
+@media (max-width: 1100px) {
+  .nav-desktop {
+    display: none !important;
+  }
+
+  [data-nav].site-nav .mobile-toggle,
+  .mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  .mobile-menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.52);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .mobile-menu-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-panel {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(280px, 68vw);
+    height: 100dvh;
+    padding: 52px 0 18px;
+    background: color-mix(in oklab, var(--navbar-bg, #0f1f3b) 78%, transparent);
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    box-shadow: -18px 0 40px rgba(15, 23, 42, 0.16);
+    z-index: 1001;
+    overflow-y: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.24s ease, opacity 0.24s ease;
+  }
+
+  html[data-theme='light'] .mobile-menu-panel {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.74)),
+      rgba(255, 255, 255, 0.64);
+    border-left: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: -18px 0 42px rgba(15, 23, 42, 0.1);
+  }
+
+  html[data-theme='dark'] .mobile-menu-panel {
+    background:
+      linear-gradient(180deg, rgba(8, 23, 48, 0.8), rgba(10, 28, 58, 0.74)),
+      color-mix(in oklab, var(--navbar-bg, #0f1f3b) 72%, transparent);
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-menu-panel.show {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu-item {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  html[data-theme='light'] .mobile-menu-item {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .mobile-menu-link {
+    display: block;
+    padding: 14px 18px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+  }
+
+  html[data-theme='light'] .mobile-menu-link {
+    color: rgba(15, 23, 42, 0.92);
+  }
+
+  html[data-theme='dark'] .mobile-menu-link {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .mobile-menu-link:hover {
+    padding-left: 22px;
+  }
+
+  html[data-theme='light'] .mobile-menu-link:hover {
+    background: rgba(15, 23, 42, 0.05);
+    color: rgba(15, 23, 42, 1);
+  }
+
+  html[data-theme='dark'] .mobile-menu-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  html[data-theme='light'] .mobile-menu-close {
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(15, 23, 42, 0.04);
+    color: rgba(15, 23, 42, 0.92);
+  }
+
+  html[data-theme='dark'] .mobile-menu-close {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.92);
+  }
+}
