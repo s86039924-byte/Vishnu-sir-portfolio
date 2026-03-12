@@ -15,6 +15,17 @@ const faculty = [
     image: "/images/founders/vaishnavi_ma'am.png",
   },
   {
+    name: 'Sapna Jha',
+    subject: 'Chemistry Faculty',
+    specialization: 'Class 11 & Class 12, Boards and Competitive Examinations',
+    experience: '18+ years',
+    description:
+      'Sapna Jha is an experienced Chemistry educator with 18+ years of teaching experience for Class 11 and Class 12 students. She has mentored 1000+ students across different boards and competitive examinations, helping them build strong conceptual understanding and problem-solving skills in Chemistry.',
+    style: 'Conceptual • Problem-Solving • Exam-Oriented',
+    icon: '⚗️',
+    image: '/images/founders/Sapna Jha.png',
+  },
+  {
     name: 'Vishnu Walke',
     subject: 'Mathematics Faculty',
     specialization: 'Grades 11–12, JEE Main & Advanced, AP Calculus, SAT',
