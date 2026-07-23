@@ -4,11 +4,12 @@ import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LOGO } from '@/lib/constants'
+import { hasUnseen, NEWSLETTER_SEEN_EVENT } from '@/lib/newsletter'
 
 type NavItem = {
   label: string
   href: string
-  variant?: 'dost'
+  variant?: 'dost' | 'newsletter'
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -17,6 +18,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Why Us', href: '/vidyabhumi_unique' },
   { label: 'About us', href: '/about_us' },
   { label: 'Dost', href: '/dost', variant: 'dost' },
+  { label: 'The Thinking Student', href: '/newsletter', variant: 'newsletter' },
   { label: 'Faculty', href: '/#faculty' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Gallery', href: '/galery' },
@@ -27,11 +29,38 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
+  const [hasNewIssue, setHasNewIssue] = useState(false)
 
   // Initialize theme from document
   useEffect(() => {
     const currentTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | null
     if (currentTheme) setTheme(currentTheme)
+  }, [])
+
+  // Check for a new "The Thinking Student" issue → show badge on the tab
+  useEffect(() => {
+    let cancelled = false
+
+    async function checkNewsletter() {
+      try {
+        const res = await fetch('/api/newsletters')
+        const data = await res.json()
+        const latest = data?.newsletters?.[0]?.createdTime as string | undefined
+        if (!cancelled) setHasNewIssue(hasUnseen(latest))
+      } catch {
+        /* silent — badge is best-effort */
+      }
+    }
+
+    checkNewsletter()
+
+    // Clear the badge as soon as the newsletter page marks issues as seen
+    const onSeen = () => setHasNewIssue(false)
+    window.addEventListener(NEWSLETTER_SEEN_EVENT, onSeen)
+    return () => {
+      cancelled = true
+      window.removeEventListener(NEWSLETTER_SEEN_EVENT, onSeen)
+    }
   }, [])
 
   // Handle scroll
@@ -107,10 +136,19 @@ export default function Navigation() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className={item.variant === 'dost' ? 'nav-dost-link' : undefined}
+                    className={
+                      item.variant === 'dost'
+                        ? 'nav-dost-link'
+                        : item.variant === 'newsletter'
+                          ? 'nav-newsletter-link'
+                          : undefined
+                    }
                     onClick={closeMobileMenu}
                   >
                     {item.label}
+                    {item.variant === 'newsletter' && hasNewIssue && (
+                      <span className="nav-newsletter-dot" aria-label="New issue available" />
+                    )}
                   </Link>
                 </li>
               ))}
@@ -179,10 +217,15 @@ export default function Navigation() {
             <li key={item.label} className="mobile-menu-item">
               <Link
                 href={item.href}
-                className={`mobile-menu-link${item.variant === 'dost' ? ' nav-dost-link' : ''}`}
+                className={`mobile-menu-link${item.variant === 'dost' ? ' nav-dost-link' : ''}${
+                  item.variant === 'newsletter' ? ' nav-newsletter-link' : ''
+                }`}
                 onClick={closeMobileMenu}
               >
                 {item.label}
+                {item.variant === 'newsletter' && hasNewIssue && (
+                  <span className="nav-newsletter-dot" aria-label="New issue available" />
+                )}
               </Link>
             </li>
           ))}
